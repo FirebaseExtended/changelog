@@ -1,0 +1,22 @@
+{
+  "name": "changelog",
+  "version": "1.0.0",
+  "description": "~Firebase demo web application used to show case new launches for FireConf'22.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirebaseExtended/changelog.git"
+  },
+  "keywords": [
+    "Firebase"
+  ],
+  "author": "Firebase Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FirebaseExtended/changelog/issues"
+  },
+  "homepage": "https://github.com/FirebaseExtended/changelog#readme"
+}
