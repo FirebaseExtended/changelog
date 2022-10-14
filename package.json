@@ -4,7 +4,13 @@
   "description": "~Firebase demo web application used to show case new launches for FireConf'22.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run install:hosting; npm run build:hosting",
+    "build:hosting": "npm run --prefix ./hosting build",
+    "deploy": "npm run build; firebase deploy",
+    "lint:hosting": "npm run --prefix ./hosting lint",
+    "install:hosting": "npm --prefix ./hosting install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "emulator": "NEXT_PUBLIC_RUN_IN_EMULATOR=true firebase emulators:start --import=./.emulator --export-on-exit ./.emulator"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,44 @@
+.form-label {
+	@apply text-xs block text-white mb-3;
+}
+
+.form-control {
+	@apply relative;
+	.input {
+		@apply appearance-none
+			bg-transparent
+			w-full
+			py-3
+			text-white
+			border-b
+			rounded-none
+			outline-none;
+		transition: border-color 0.3s ease;
+
+		+ svg {
+			@apply pointer-events-none absolute left-0 top-2.5 stroke-white;
+			transition: stroke 0.3s ease;
+		}
+
+		&:focus {
+			@apply border-fb-yellow;
+			+ svg {
+				@apply text-fb-yellow stroke-current;
+			}
+		}
+
+		&:disabled {
+			@apply pointer-events-none border-b-white/10;
+		}
+	}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus {
+		-webkit-text-fill-color: #ffffff;
+		-webkit-box-shadow: 0 0 0px 1000px #202124 inset;
+		background-color: transparent;
+	}
+
+	transition: color 0.3s ease, border-color 0.3s ease;
+}

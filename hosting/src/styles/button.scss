@@ -1,0 +1,41 @@
+.button {
+	@apply inline-flex
+            font-mono
+            border
+            border-transparent
+            whitespace-nowrap
+            px-5
+            py-3
+            text-sm
+            rounded-full;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+	&:disabled {
+		@apply pointer-events-none opacity-70;
+	}
+}
+.button-transparent {
+	@apply text-white;
+	&:hover {
+		@apply bg-fb-gray-light/20;
+	}
+}
+.button-outline {
+	@apply text-white
+        border-fb-gray-light/20;
+	&:hover {
+		@apply border-fb-gray-light;
+	}
+	&.button-inverted {
+		@apply text-fb-gray border-fb-gray/10;
+		&:hover {
+			@apply border-fb-gray/90;
+		}
+	}
+}
+.button-primary {
+	@apply bg-fb-yellow-muted
+        border-fb-yellow-muted
+        text-fb-gray
+        font-bold;
+}

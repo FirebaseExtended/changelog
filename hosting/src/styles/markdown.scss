@@ -1,0 +1,41 @@
+// Markdown styles
+
+.markdown {
+	@apply space-y-8;
+	> *:not(pre):not(img) {
+		@apply max-w-screen-md;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-white;
+	}
+	h1,
+	h2,
+	h3 {
+		@apply title;
+	}
+
+	h2 {
+		@apply text-2xl;
+	}
+	h3 {
+		@apply text-lg;
+	}
+	pre {
+		background-color: #25272c;
+		@apply relative text-sm p-4 overflow-auto;
+		@screen md {
+			@apply p-12 text-base;
+		}
+		@screen lg {
+			@apply px-16;
+		}
+		.button {
+			@apply absolute top-8 right-8;
+		}
+	}
+}
