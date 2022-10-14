@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+
+@layer base {
+	body {
+		@apply antialiased
+            bg-fb-gray
+        text-fb-gray-light;
+	}
+
+	::selection {
+		@apply bg-fb-yellow-muted text-fb-gray;
+	}
+
+	@import 'button';
+	@import 'form';
+
+	.title {
+		@apply font-mono
+        font-semibold
+        tracking-tighter;
+	}
+	.overlay-grid {
+		@apply absolute
+        container
+        inset-x-0
+        top-12
+        bottom-60
+        grid
+        pointer-events-none
+        grid-cols-4
+        lg:grid-cols-8;
+	}
+	.overlay-grid-span {
+		@apply border-r
+        border-opacity-20
+        border-[#6B6034]
+        border-dashed;
+		&:first-child {
+			@apply border-l;
+		}
+	}
+}
+
+.navbar {
+	@apply absolute
+        top-0
+        z-20
+        inset-x-0
+        text-fb-gray
+        py-8;
+
+	.nav-item {
+		@apply p-2 relative;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0.5rem;
+			right: 0.5rem;
+			bottom: 0;
+			height: 1.5px;
+			opacity: 0;
+			background: currentColor;
+		}
+
+		&.nav-item-current {
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.author-card {
+	@apply flex
+        items-center
+        self-start
+        whitespace-nowrap
+        gap-3
+        bg-[#2C2E33]
+        p-1
+        pr-6
+        text-sm
+        text-white
+        rounded-full;
+	.author-name {
+		@apply truncate;
+	}
+	.author-title {
+		@apply text-fb-gray-light text-xs truncate;
+	}
+	.bg-fb-yellow-muted & {
+		@apply bg-opacity-10
+            text-fb-gray;
+		.author-title {
+			@apply text-[#90814C];
+		}
+	}
+}
+
+.entry-hero-bg {
+	@apply absolute inset-0 bg-fb-yellow-muted -z-10;
+	clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%);
+}
+
+#changelog-marquee {
+	@apply font-mono
+        overflow-hidden
+        select-none
+        w-screen
+        z-20
+        relative
+        font-semibold;
+	font-size: 15vw;
+	.moving-element {
+		--movingElementOutline: 5px;
+		--opposite: calc(-1 * var(--movingElementOutline));
+		@apply whitespace-nowrap;
+		text-shadow: 0 var(--movingElementOutline) #ffdb5d, var(--movingElementOutline) 0 #ffdb5d,
+			var(--opposite) 0 #ffdb5d, 0px var(--opposite) #ffdb5d;
+		will-change: transform;
+		-webkit-backface-visibility: hidden;
+		animation: marquee 10s linear infinite;
+	}
+}
+
+.slant-hero {
+	@apply absolute
+        inset-0
+        h-full
+        min-h-screen
+        bg-fb-yellow-muted
+        w-1/2;
+	clip-path: polygon(0 0, 100% 0, calc(100% - 300px) 100%, 0 100%);
+}
+
+@import 'markdown';
+@import 'syntax';
+
+.sparky {
+	@apply absolute left-[20vw] bg-contain pointer-events-none bg-no-repeat bg-center;
+	width: 200px;
+	height: 200px;
+	background-image: url('https://cdn.raster.app/google/firebase/EQDAtfwbh0?ixlib=js-3.6.0&s=c450b2e67f452ccee071185f189a94fb');
+	transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transform: translateY(205px) rotate(-15deg);
+}
+.footer {
+	@apply pt-16 pb-24 overflow-hidden;
+	&.hello-sparky {
+		.sparky {
+			background-image: url('https://cdn.raster.app/google/firebase/3glwD1rHuE?ixlib=js-3.6.0&s=15cd06b7f445abc0fcffca9296a91646');
+			transform: translateY(35px);
+		}
+	}
+}
+
+#__next {
+	@apply contents;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate3d(0vw, 0, 0);
+	}
+	100% {
+		transform: translate3d(-81vw, 0, 0);
+	}
+}
+
+@tailwind utilities;

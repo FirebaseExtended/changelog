@@ -1,0 +1,11 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow list: if true;
+      allow get: if true;
+      allow write: if true;
+  
+    }
+  }
+}
