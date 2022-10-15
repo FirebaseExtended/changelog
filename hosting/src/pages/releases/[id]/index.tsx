@@ -1,6 +1,5 @@
 import type { GetServerSidePropsResult } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 
 import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firestore'
 
@@ -37,12 +36,8 @@ export default function ReleasePage({ release, features }: ReleasePageProps) {
 				{/* Image */}
 				{release.image_url && (
 					<div className="flex max-w-screen-md my-12 relative h-72">
-						<Image
+						<img
 							src={release.image_url}
-							layout="fill"
-							objectFit="contain"
-							objectPosition="left"
-							alt='Image for release "{release.title}"'
 						/>
 					</div>
 				)}

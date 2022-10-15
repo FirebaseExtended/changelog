@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import type { Release } from '@lib/types'
@@ -40,11 +39,11 @@ export default function ChangelogEntrySnippet({ release }: Props) {
 				<div className="flex w-full items-start gap-4">
 					<div className="relative flex-none w-[48px] h-[48px]">
 						{release.image_url && (
-							<Image
+							<img
 								src={release.image_url}
+								width={48}
+								height={48}
 								alt=""
-								layout="fill"
-								objectFit="contain"
 								className="flex-shrink-0"
 							/>
 						)}
