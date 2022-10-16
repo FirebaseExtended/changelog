@@ -5,7 +5,7 @@ export default function AuthorCard({ name, photoURL }: { name: string; photoURL:
 		<div className="author-card">
 			{/* Photo */}
 			{photoURL ? (
-				<img src={photoURL} width={48} height={48} className="rounded-full" alt="User photo" />
+				<img src={photoURL} width={48} height={48} className="rounded-full" />
 			) : (
 				<div className="w-[48px] h-[48px] bg-white/10 rounded-full flex items-center justify-center">
 					<svg
