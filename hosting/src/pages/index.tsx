@@ -21,11 +21,11 @@ type HomePageProps = {
 	totalFeaturesCount: number
 }
 
-export default function Home({ releases: releasesSSR, totalFeaturesCount }: HomePageProps) {
+export default function Home({ releases: releasesSSR, totalFeaturesCount = 0 }: HomePageProps) {
 	const releasesCollectionRef = collection(useFirestore(), 'releases').withConverter(
 		releaseConverter
 	)
-	const releasesRef = query(releasesCollectionRef, orderBy('version', 'desc'))
+	const releasesRef = query(releasesCollectionRef, orderBy('timestamp', 'desc'))
 
 	const { data: releases } = useFirestoreCollectionData(releasesRef, {
 		initialData: releasesSSR
@@ -51,7 +51,7 @@ export default function Home({ releases: releasesSSR, totalFeaturesCount }: Home
 
 			<main className="section">
 				<div className="container pt-12 pb-4 flex justify-end">
-					<span className="font-semibold mr-2 text-white">{totalFeaturesCount}</span> total features
+					<span className="font-semibold mr-2 text-white">{totalFeaturesCount.toLocaleString()}</span> total features
 					shipped
 				</div>
 				<div className="container divide-y divide-[#867944] divide-opacity-20 pb-20">
@@ -80,7 +80,7 @@ export async function getServerSideProps() {
 	const db = getFirestore()
 
 	// releases
-	const collectionRef = query(collection(db, 'releases'), orderBy('version', 'desc'))
+	const collectionRef = query(collection(db, 'releases'), orderBy('timestamp', 'desc'))
 	const releasesSnapshot = await getDocs(collectionRef)
 	const releases = releasesSnapshot.docs.map((releaseSnapshot) => ({
 		...releaseSnapshot.data(),
