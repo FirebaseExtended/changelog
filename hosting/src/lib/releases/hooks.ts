@@ -29,7 +29,7 @@ export const useReleases = (initialData: Releases): UseReleasesReturn => {
 	const releasesCollectionRef = collection(useFirestore(), 'releases').withConverter(
 		releaseConverter
 	)
-	const releasesRef = query(releasesCollectionRef, orderBy('version', 'desc'))
+	const releasesRef = query(releasesCollectionRef, orderBy('timestamp', 'desc'))
 
 	const { status, data } = useFirestoreCollectionData(releasesRef, { initialData })
 

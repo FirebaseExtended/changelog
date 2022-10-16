@@ -18,7 +18,7 @@ import { COVER_IMAGE_FILENAME, releaseConverter } from './utils'
 export const getReleases = async () => {
 	const collectionRef = query(
 		collection(database, 'releases').withConverter(releaseConverter),
-		orderBy('version', 'desc')
+		orderBy('timestamp', 'desc')
 	)
 
 	const releasesSnapshot = await getDocs(collectionRef)

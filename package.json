@@ -24,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/FirebaseExtended/changelog/issues"
   },
-  "homepage": "https://github.com/FirebaseExtended/changelog#readme"
+  "homepage": "https://github.com/FirebaseExtended/changelog#readme",
+  "devDependencies": {
+    "firebase-admin": "^11.1.0"
+  },
+  "dependencies": {
+    "firebase": "^9.12.1"
+  }
 }
