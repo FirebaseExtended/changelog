@@ -23,7 +23,7 @@ export default function SignIn() {
 			</p>
 
 			{/* Auth module */}
-			<div className="w-[490px]">
+			<div className='max-w-[490px]'>
 				<LoginHandler />
 				<div id="recaptcha-container-id" />
 			</div>
