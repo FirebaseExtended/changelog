@@ -167,8 +167,8 @@ export default function LoginHandler() {
 	const EmailForm = (
 		<form onSubmit={onSignInClick} className="flex items-end gap-4">
 			{/* Email field + label */}
-			<div className="flex-1">
-				<label htmlFor="email" className="form-label min-w-[150px]">
+			<div className="flex-1 min-w-[150px]">
+				<label htmlFor="email" className="form-label">
 					Email
 				</label>
 				<div className="form-control relative">
