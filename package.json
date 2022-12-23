@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/FirebaseExtended/changelog#readme",
   "devDependencies": {
-    "firebase-admin": "^11.1.0"
+    "firebase-admin": "^11.4.1"
   },
   "dependencies": {
     "firebase": "^9.12.1"
